@@ -1,41 +1,13 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState } from "react";
+import IdeaCard from "../../components/IdeaCard";
+import { useIdeas } from "../../context/IdeaContext";
 
 export default function Explore() {
-  const [ideas, setIdeas] = useState([]);
+  const { ideas } = useIdeas();
   const [selectedCategory, setSelectedCategory] = useState("All");
-
-  useEffect(() => {
-    const sampleIdeas = [
-      {
-        id: 1,
-        title: "Smart Study Planner",
-        description: "A platform to help students organize their study schedules.",
-        category: "Education",
-      },
-      {
-        id: 2,
-        title: "Food Waste Saver",
-        description: "Connect restaurants with people who need affordable food.",
-        category: "Environment",
-      },
-      {
-        id: 3,
-        title: "Skill Exchange",
-        description: "A place where people can teach and learn skills together.",
-        category: "Technology",
-      },
-    ];
-
-    const submittedIdeas = JSON.parse(
-      localStorage.getItem("ideatest-ideas") || "[]"
-    );
-
-    setIdeas([...sampleIdeas, ...submittedIdeas]);
-  }, []);
 
   const filteredIdeas =
     selectedCategory === "All"
@@ -46,22 +18,8 @@ export default function Explore() {
 
   return (
     <main className="min-h-screen bg-gray-50">
-      <nav className="flex items-center justify-between bg-white px-8 py-5 shadow">
-        <h1 className="text-2xl font-bold text-blue-600">
-          IdeaTest
-        </h1>
-
-        <div className="flex gap-6">
-          <Link href="/">Home</Link>
-          <Link href="/explore" className="text-blue-600">
-            Explore Ideas
-          </Link>
-          <Link href="/submit">Submit Idea</Link>
-          <Link href="/login">Login</Link>
-        </div>
-      </nav>
-
       <section className="px-6 py-16">
+
         <h2 className="mb-4 text-center text-4xl font-bold">
           Explore Ideas
         </h2>
@@ -85,26 +43,11 @@ export default function Explore() {
           </select>
         </div>
 
-        {/* Ideas Display */}
+        {/* Display Ideas */}
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
           {filteredIdeas.length > 0 ? (
             filteredIdeas.map((idea) => (
-              <div
-                key={idea.id}
-                className="rounded-xl bg-white p-6 shadow"
-              >
-                <h3 className="mb-3 text-xl font-bold text-gray-900">
-                  {idea.title}
-                </h3>
-
-                <p className="text-gray-600">
-                  {idea.description}
-                </p>
-
-                <p className="mt-4 text-sm text-blue-600">
-                  Category: {idea.category}
-                </p>
-              </div>
+              <IdeaCard key={idea.id} idea={idea} />
             ))
           ) : (
             <p className="col-span-3 text-center text-gray-600">
@@ -112,6 +55,7 @@ export default function Explore() {
             </p>
           )}
         </div>
+
       </section>
     </main>
   );

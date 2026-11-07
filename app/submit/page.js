@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useIdeas } from "../../context/IdeaContext";
 
 export default function SubmitPage() {
   const [title, setTitle] = useState("");
@@ -12,6 +12,7 @@ export default function SubmitPage() {
   const [checking, setChecking] = useState(true);
 
   const router = useRouter();
+  const { addIdea } = useIdeas();
 
   useEffect(() => {
     const loginStatus = localStorage.getItem("ideatest-login");
@@ -33,16 +34,8 @@ export default function SubmitPage() {
       description,
     };
 
-    const existingIdeas = JSON.parse(
-      localStorage.getItem("ideatest-ideas") || "[]"
-    );
-
-    existingIdeas.push(newIdea);
-
-    localStorage.setItem(
-      "ideatest-ideas",
-      JSON.stringify(existingIdeas)
-    );
+    // Add idea to React Context
+    addIdea(newIdea);
 
     alert("Your idea has been submitted successfully!");
 
@@ -57,15 +50,6 @@ export default function SubmitPage() {
 
   return (
     <main className="min-h-screen bg-gray-50">
-      <nav className="flex justify-between bg-white px-8 py-5 shadow">
-        <h1 className="text-2xl font-bold text-blue-600">
-          IdeaTest
-        </h1>
-
-        <Link href="/explore" className="text-blue-600">
-          Explore Ideas
-        </Link>
-      </nav>
 
       <section className="mx-auto max-w-xl px-6 py-12">
         <h2 className="mb-6 text-center text-3xl font-bold">
@@ -76,6 +60,7 @@ export default function SubmitPage() {
           onSubmit={handleSubmit}
           className="space-y-5 rounded-xl bg-white p-8 shadow"
         >
+
           <div>
             <label className="mb-2 block font-medium">
               Idea Title
@@ -132,6 +117,7 @@ export default function SubmitPage() {
           >
             Submit Idea
           </button>
+
         </form>
       </section>
     </main>

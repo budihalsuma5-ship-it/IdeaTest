@@ -4,30 +4,6 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50 text-gray-900">
-      {/* Navigation */}
-      <nav className="flex items-center justify-between bg-white px-8 py-5 shadow">
-        <h1 className="text-2xl font-bold text-blue-600">
-          IdeaTest
-        </h1>
-
-        <div className="flex items-center gap-6">
-          <Link href="/" className="font-medium text-blue-600">
-            Home
-          </Link>
-          <Link href="/explore" className="hover:text-blue-600">
-            Explore Ideas
-          </Link>
-          <Link href="/submit" className="hover:text-blue-600">
-            Submit Idea
-          </Link>
-          <Link
-            href="/login"
-            className="rounded-lg bg-blue-600 px-5 py-2 text-white hover:bg-blue-700"
-          >
-            Login
-          </Link>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <section className="px-6 py-28 text-center">
@@ -64,6 +40,7 @@ export default function Home() {
         </h2>
 
         <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
+
           <div className="rounded-xl bg-gray-50 p-8 text-center shadow">
             <h3 className="mb-3 text-xl font-bold">1. Submit</h3>
             <p className="text-gray-600">
@@ -84,6 +61,7 @@ export default function Home() {
               Get feedback and improve your ideas.
             </p>
           </div>
+
         </div>
       </section>
 
@@ -91,6 +69,7 @@ export default function Home() {
       <footer className="bg-gray-900 px-6 py-6 text-center text-white">
         <p>© 2026 IdeaTest. All rights reserved.</p>
       </footer>
+
     </main>
   );
 }
