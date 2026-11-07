@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# IdeaTest
 
-## Getting Started
+**A Platform to Share, Explore and Validate Ideas Before Building Them**
 
-First, run the development server:
+## About the Project
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+IdeaTest is a web-based platform that allows users to share their innovative ideas and explore ideas submitted by others. It helps people receive feedback and understand the potential of their ideas before investing time and effort in developing them.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Problem Statement
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Many people have innovative ideas but do not have a simple platform to share them and receive feedback. IdeaTest aims to provide a common platform where users can submit ideas, explore different concepts and discover potential opportunities.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Features
 
-## Learn More
+- **Explore Ideas:** Browse ideas shared by other users.
+- **Category Filtering:** Filter ideas based on categories.
+- **Submit Ideas:** Submit new ideas through a simple form.
+- **Login Protection:** Login is required to access the idea submission page.
+- **Reusable Components:** Common interface elements are reused across pages.
+- **Shared State Management:** React Context is used to manage ideas across the application.
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js
+- React.js
+- JavaScript
+- Tailwind CSS
+- React Context API
+- Browser Local Storage
+- Git and GitHub
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pages
 
-## Deploy on Vercel
+1. **Home:** Introduction to the IdeaTest platform.
+2. **Explore Ideas:** Displays available ideas with category filtering.
+3. **Submit Idea:** Allows users to submit new ideas.
+4. **Login:** Provides a demonstration login interface.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Installation and Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/budihalsuma5-ship-it/IdeaTest.git
+   ```
+
+2. Navigate to the project folder:
+
+   ```bash
+   cd IdeaTest
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and visit:
+
+   `http://localhost:3000`
+
+## Project Status
+
+This project is a working MVP developed as part of our academic milestone. It currently uses sample data and browser Local Storage for demonstration purposes. Login is a demo feature and does not provide real authentication.
+
+## Team
+
+Developed by a team of two students as part of the college project milestone.
